@@ -1,0 +1,230 @@
+/* --- Reinicio Básico --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #121212; /* Fondo oscuro predeterminado */
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* --- Contenedor Principal (Ancho de la página) --- */
+.container {
+    max-width: 1000px; /* Un poco más ancho para dar aire */
+    margin: 0 auto;
+    padding: 0 20px; /* Espaciado lateral responsivo */
+}
+
+/* --- Encabezado (Hero) --- */
+.hero {
+    background-color: #1a1a1a;
+    padding: 60px 0;
+    text-align: center;
+    border-bottom: 2px solid #333;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.hero .subtitle {
+    color: #a0a0a0;
+    font-size: 1.2rem;
+}
+
+/* --- Grilla de Juegos (Apilados verticalmente) --- */
+.games-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Espacio vertical entre tarjetas */
+}
+
+/* --- Tarjeta de cada juego --- */
+.game-card {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+
+.game-card h2 {
+    color: #ffffff;
+    font-size: 2.1rem;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+/* --- ->->-> SOLUCIÓN: TAMAÑO MEDIO DEL VIDEO <-<-<- --- */
+.game-media {
+    display: flex;
+    justify-content: center; /* Centra el video horizontalmente */
+    margin-bottom: 25px;
+}
+
+/* Este wrapper define el tamaño máximo del video, haciéndolo "medio" dentro de la tarjeta */
+.video-wrapper {
+    width: 100%;
+    max-width: 500px; /* TAMAÑO MEDIO DEFINIDO AQUÍ (600px o 60%) */
+    margin: 0 auto; /* Centrado explícito */
+}
+
+/* El video real se escala al 100% de su envoltorio medio */
+.game-video {
+    width: 100%;
+    height: auto; /* Mantiene la proporción del video */
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: #000;
+}
+
+/* --- Descripción --- */
+.game-info {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.game-info p {
+    font-size: 1.1rem;
+    color: #cccccc;
+    max-width: 750px; /* Mantiene el texto legible */
+    margin: 0 auto;
+}
+
+/* --- Botones --- */
+.download-section {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite envolver en pantallas medianas */
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    min-width: 180px; /* Asegura un tamaño de botón cómodo */
+}
+
+.btn-primary {
+    background-color: #0078d7; /* Azul tech */
+    color: white;
+    border: 1px solid #005a9e;
+}
+
+.btn-primary:hover {
+    background-color: #005a9e;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #e0e0e0;
+    border: 2px solid #555;
+}
+
+.btn-secondary:hover {
+    background-color: #333;
+    border-color: #888;
+    transform: translateY(-2px);
+}
+
+/* --- Pie de página --- */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 60px;
+    background-color: #1a1a1a;
+    color: #777;
+    font-size: 0.95rem;
+    border-top: 1px solid #333;
+}
+
+footer a {
+    color: #0078d7;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+/* --- ->->-> RESPONSIVE MEDIA QUERIES <-<-<- --- */
+
+/* Ajustes para tabletas y celulares en horizontal (max 768px) */
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px 0;
+    }
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+    .hero .subtitle {
+        font-size: 1rem;
+    }
+
+    .game-card h2 {
+        font-size: 1.8rem;
+    }
+
+    .game-card {
+        padding: 20px;
+    }
+}
+
+/* Ajustes críticos para celulares (max 480px) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.9rem;
+    }
+    .hero {
+        padding: 30px 0;
+    }
+
+    .container {
+        padding: 0 10px; /* Menos espacio lateral */
+    }
+
+    .games-grid {
+        gap: 25px; /* Tarjetas más juntas */
+    }
+
+    .game-card h2 {
+        font-size: 1.6rem;
+    }
+
+    .game-card {
+        padding: 15px; /* Tarjetas más compactas */
+    }
+
+    /* ->->-> SOLUCIÓN: FORZAR BOTONES VERTICALES EN MÓVIL <-<-<- */
+    .download-section {
+        flex-direction: column; /* Apilar botones */
+        gap: 10px; /* Menos espacio vertical */
+    }
+
+    .btn {
+        width: 100%; /* Botones de ancho completo */
+        padding: 10px 15px;
+        min-width: 0; /* Anular el min-width de escritorio */
+    }
+}
